@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3.8"
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - coverage run manage.py test core/tests
+  - coverage report
+
+after_success:
+  - codecov -t "538f4382-1c1a-43bd-9f01-eeb160be4d57"
