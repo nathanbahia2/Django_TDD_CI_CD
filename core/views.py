@@ -42,9 +42,9 @@ def cadastrar_e_editar_contato(request, pk=None):
 
         else:
             if contato:
-                messages.warinig(request, 'Falha ao editar contato!')
+                messages.warning(request, 'Falha ao editar contato!')
             else:
-                messages.warinig(request, 'Falha ao cadastrar contato!')
+                messages.warning(request, 'Falha ao cadastrar contato!')
 
         return redirect('index')
 

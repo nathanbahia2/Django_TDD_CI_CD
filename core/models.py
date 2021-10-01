@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Contato(models.Model):
@@ -15,3 +16,6 @@ class Contato(models.Model):
     def excluir(self):
         self.ativo = False
         self.save()
+
+    def get_absolute_url(self):
+        return reverse('editar_contato', args=[self.id])

@@ -1,6 +1,6 @@
 import random
 
-from . import models
+from core import models
 
 
 nomes = [
@@ -32,6 +32,7 @@ cidades = [
     'Niterói, RJ'
 ]
 
+
 def gerar_email(nome):
     nomes = list(map(lambda n: n.lower(), nome.split()))
     primeiro_nome, ultimo_nome = nomes[0], nomes[-1]
@@ -60,4 +61,4 @@ def gerar_pessoas():
 
 
 if __name__ == '__main__':
-    gerar_pessoas();
+    gerar_pessoas()

@@ -2,7 +2,7 @@
 
 # Agenda APP
 
-Projeto exemplo de integração e entrega contínua contínua.
+Projeto exemplo de integração e entrega contínua.
 
 **Este projeto contém exemplos de:**
 - Testes utilizando TestCase

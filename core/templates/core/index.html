@@ -16,53 +16,53 @@
         {% endfor %}
     {% endif %}
     
-    {% if contatos %}
-        {% for contato in contatos %}
-            <div class="d-flex justify-content-between p-4 {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
-                <div class="contato">
-                    <div class="contato-nome">{{ contato.nome }}</div>
-                    <div class="contato-dados">
-                        {% if contato.telefone %}
-                            <i class="fas fa-phone"></i> {{ contato.telefone }}
-                        {% endif %}
-                        {% if contato.celular %}
-                            <i class="fas fa-mobile-alt"></i> {{ contato.celular }} 
-                        {% endif %}
-                        {% if contato.email %}
-                            <i class="fas fa-at"></i> {{ contato.email }}
-                        {% endif %}
-                    </div>
+    {% for contato in contatos %}
+        <div class="d-flex justify-content-between p-4 {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+            <div class="contato">
+                <span class="contato-nome">{{ contato.nome }}</span>
+
+                <div class="contato-dados">
+                    {% if contato.telefone %}
+                        <span><i class="fas fa-phone"></i> {{ contato.telefone }}</span>
+                    {% endif %}
+                    {% if contato.celular %}
+                        <span><i class="fas fa-mobile-alt"></i> {{ contato.celular }}</span>
+                    {% endif %}
+                    {% if contato.email %}
+                        <span><i class="fas fa-at"></i> {{ contato.email }}</span>
+                    {% endif %}
                     {% if contato.endereco %}
-                        <div class="contato-endereco">
-                            <i class="fas fa-map-marker-alt"></i> {{ contato.endereco }}
-                        </div>
+                        <span><i class="fas fa-map-marker-alt"></i> {{ contato.endereco }}</span>
                     {% endif %}
                 </div>
-                <div class="contato-buttons btn-group my-auto">
-                    <a href={% url 'editar_contato' contato.id %} class="btn btn-sm btn-dark">
-                        <i class="fas fa-user-edit"></i>
-                    </a>
-                    <button class="btn btn-sm btn-danger btn-delete" data-id={{ contato.id }}>
-                        <i class="fas fa-user-minus"></i>
-                    </button>
-                </div>
             </div>
-        {% endfor %}
-    {% else %}
+
+            <div class="contato-buttons btn-group my-auto">
+                <a href="{{ contato.get_absolute_url }}" class="btn btn-sm btn-dark">
+                    <i class="fas fa-user-edit"></i>
+                </a>
+                <button class="btn btn-sm btn-danger btn-delete" data-id={{ contato.id }}>
+                    <i class="fas fa-user-minus"></i>
+                </button>
+            </div>
+        </div>
+
+    {% empty %}
         <div class="alert alert-warning">Nenhum contato</div>
-    {% endif %}
+
+    {% endfor %}
 {% endblock %}
 
 {% block script %}
-<script>
-    const btnDelete = document.querySelectorAll(".btn-delete");
-    btnDelete.forEach( el => {
-        el.addEventListener('click', () => {
-            const idContato = el.dataset.id;
-            if(window.confirm("Tem certeza que deseja excluir este contato?")) {
-                location.href = "/excluir/" + idContato;
-            }
+    <script>
+        const btnDelete = document.querySelectorAll(".btn-delete");
+        btnDelete.forEach( el => {
+            el.addEventListener('click', () => {
+                const idContato = el.dataset.id;
+                if(window.confirm("Tem certeza que deseja excluir este contato?")) {
+                    location.href = "/excluir/" + idContato;
+                }
+            });
         });
-    });
-</script>
+    </script>
 {% endblock %}
