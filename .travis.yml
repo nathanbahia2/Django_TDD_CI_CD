@@ -10,4 +10,4 @@ script:
   - coverage report
 
 after_success:
-  - codecov -t "538f4382-1c1a-43bd-9f01-eeb160be4d57"
+  - codecov -t 538f4382-1c1a-43bd-9f01-eeb160be4d57
