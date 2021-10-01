@@ -7,7 +7,7 @@ install:
 
 before_script:
   - touch .env
-  - echo SECRET_KEY=$SECRET_KEY >> .env
+  - echo SECRET_KEY=ABC1234ABC1234ABC1234 >> .env
 
 script:
   - coverage run manage.py test core/tests
