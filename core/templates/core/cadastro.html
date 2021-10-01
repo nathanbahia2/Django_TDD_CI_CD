@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    {% if instance %}
+        <h5 class="title">Editar contato</h5>
+    {% else %}
+        <h5 class="title">Cadastro</h5>
+    {% endif %}
+
+    <form method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a class="btn btn-outline-secondary"  href="{% url 'index' %}">Cancelar</a>
+        <button class="btn btn-primary">Salvar</button>
+    </form>
+{% endblock %}
