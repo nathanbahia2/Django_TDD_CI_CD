@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/nathanbahia2/Django_TDD_CI_CD/branch/master/graph/badge.svg?token=R0MWAECBZA)](https://codecov.io/gh/nathanbahia2/Django_TDD_CI_CD)
+[![Build Status](https://app.travis-ci.com/nathanbahia2/Django_TDD_CI_CD.svg?branch=master)](https://app.travis-ci.com/nathanbahia2/Django_TDD_CI_CD) [![codecov](https://codecov.io/gh/nathanbahia2/Django_TDD_CI_CD/branch/master/graph/badge.svg?token=R0MWAECBZA)](https://codecov.io/gh/nathanbahia2/Django_TDD_CI_CD)
 
 # Agenda APP
 
