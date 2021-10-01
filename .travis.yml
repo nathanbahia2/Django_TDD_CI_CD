@@ -1,12 +1,14 @@
 language: python
 python:
-  - "3.8"
+  - "3.7.9"
 
 install:
   - pip install -r requirements.txt
 
 before_script:
   - touch .env
+  - echo ALLOWED_HOSTS=localhost >> .env
+  - echo DEBUG=True >> .env
   - echo SECRET_KEY=ABC1234ABC1234ABC1234 >> .env
 
 script:
