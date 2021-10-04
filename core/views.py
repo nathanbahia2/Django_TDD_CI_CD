@@ -5,7 +5,7 @@ from core import models, forms
 
 
 def index(request):
-    contatos = models.Contato.objects.filter(ativo=True)
+    contatos = models.Contato.objects.filter(ativo=True).order_by('nome')
 
     context = {
         'contatos': contatos
